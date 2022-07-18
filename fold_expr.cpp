@@ -1,7 +1,16 @@
 #include <iostream>
+
+// Shows how Cpp17 fold feature works
+
+// and this adds up values repeatedly (a + (b + (c + d))) + ...
 template<typename ...T>
-auto sum(const T&...t) {
-    return(t+...);
+auto sumL(const T&...t) {
+    return(t + ...);
+}
+
+//It adds up values repeatedly ((a + b) + c) + d) + ...
+auto sumR(const T&...t) {
+    return(... + t);
 }
 
 int main() {
