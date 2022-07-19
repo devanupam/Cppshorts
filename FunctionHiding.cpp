@@ -1,3 +1,4 @@
+// Function hiding - if a derived class redefines the base class member method then all the base class methods with the same name become hidden in the derived class.
 
 #include <iostream>
 
@@ -13,10 +14,11 @@ public:
 class Derived : public Base
 {
 private:
-    using Base::fun;
+     
     /* data */
 public:
-    void fun(int i) { std::cout << "Der"; }
+    using Base::fun; // To mitigate function hiding
+    void fun(int i) { std::cout << "Derived"; }
 };
 
 int main() {
